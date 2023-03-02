@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class TxConfig {
+public class TxConfig { //애너테이션 없이 AOP로 트랜잭션 구현하려는것 in MemberService 클래스의 createMember 로직.
 
     //애플리케이션에 트랜잭션을 적용하기 위해서는 TransactionManager 객체가 필요, DI
     private final TransactionManager transactionManager;

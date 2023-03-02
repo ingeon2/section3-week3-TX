@@ -56,6 +56,8 @@ public class MemberService {
         //두 개의 데이터베이스에는 모두 데이터가 저장되지 않습니다.
         //이처럼 분산 트랜잭션을 적용하면 서로 다른 리소스에 대한 작업을 수행하더라도
         //하나의 작업처럼 관리하기 때문에 원자성을 보장할 수 있다는 사실을 기억하기.
+
+
         return savedMember;
     }
 
@@ -73,6 +75,8 @@ public class MemberService {
                 .ifPresent(memberStatus -> findMember.setMemberStatus(memberStatus));
 
         return memberRepository.save(findMember);
+        //@Transactional 붙어있으니 
+        //그냥 return findMember 해도 db에 저장 된다.(애너테이션 안에 있는 merge의 역할, 변경된 내용을 반영)
     }
 
     //@Transactional(readOnly = true) //클래스 레벨보다 먼저 적용

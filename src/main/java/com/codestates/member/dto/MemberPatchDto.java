@@ -6,6 +6,9 @@ import lombok.Getter;
 
 import javax.validation.constraints.Pattern;
 
+
+//dto 하나에 때려박을 수 있음.
+//static클래스로 patch, post, response 이런식으로
 @Getter
 public class MemberPatchDto {
     private long memberId;
