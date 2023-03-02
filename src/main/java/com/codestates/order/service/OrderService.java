@@ -12,11 +12,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
+@Transactional //클래스 레벨에 @Transactional 애너테이션이 추가 되었으므로 메서드 전체에 트랜잭션이 적용
 public class OrderService {
     private final MemberService memberService;
     private final OrderRepository orderRepository;
@@ -35,7 +37,9 @@ public class OrderService {
 
         updateStamp(savedOrder);
 
-        return savedOrder;
+        throw new RuntimeException("Rollback test"); //롤백 적용
+
+        //return savedOrder;
     }
 
     public Order updateOrder(Order order) {
