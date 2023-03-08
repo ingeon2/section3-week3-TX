@@ -10,7 +10,8 @@ public enum ExceptionCode {
     ORDER_NOT_FOUND(404, "Order not found"),
     CANNOT_CHANGE_ORDER(403, "Order can not change"),
     NOT_IMPLEMENTATION(501, "Not Implementation"),
-    INVALID_MEMBER_STATUS(400, "Invalid member status");
+    INVALID_MEMBER_STATUS(400, "Invalid member status"),
+    FAIL_TO_SEND_EMAIL(404, "Email address not found");
 
     @Getter
     private int status;

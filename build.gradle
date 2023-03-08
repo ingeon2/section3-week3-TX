@@ -28,8 +28,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
-	implementation 'mysql:mysql-connector-java'
-	implementation 'org.springframework.boot:spring-boot-starter-jta-atomikos'
+	//implementation 'mysql:mysql-connector-java' //여기 두 줄은 분산 트랜잭션 파트
+	//implementation 'org.springframework.boot:spring-boot-starter-jta-atomikos'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {

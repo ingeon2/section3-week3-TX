@@ -54,6 +54,10 @@ public class TxConfig { //애너테이션 없이 AOP로 트랜잭션 구현하�
     @Bean
     public Advisor txAdvisor() {
         // AspectJExpressionPointcut 객체를 생성한 후, 포인트 컷 표현식으로 CoffeeService 클래스를 타겟 클래스로 지정
+        //CoffeeService 클래스를 트랜잭션 타겟 클래스로 지정
+        //CoffeeService 클래스를 트랜잭션 타겟 클래스로 지정
+        //CoffeeService 클래스를 트랜잭션 타겟 클래스로 지정
+        //CoffeeService 클래스를 트랜잭션 타겟 클래스로 지정
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
         pointcut.setExpression("execution(* com.codestates.coffee.service." + "CoffeeService.*(..))");
 
@@ -61,3 +65,6 @@ public class TxConfig { //애너테이션 없이 AOP로 트랜잭션 구현하�
         // DefaultPointcutAdvisor의 생성자 파라미터로 포인트컷과 어드바이스를 전달
     }
 }
+
+//CoffeeService의 createCoffee() 에서 커피 정보를 DB에 저장 하는 coffeeRepository.save() 코드 이 후
+//라인에 강제로 예외를 던지게 하는 코드를 추가한 후, H2 웹 콘솔에서 rollback이 잘 되는지 여러분이 직접 확인.

@@ -186,3 +186,6 @@ mysql 콘솔에서 기존의 커피 주문 정보를 위한 데이터베이스 �
 build.gradle에 의존 라이브러리 추가, XaCoffeeOrderConfig(커피 주문 위한 db), XaBackupConfig(백업용 회원 정보 db) 클래스 추가.  
 (설명은 XaCoffeeOrderConfig 클래스에 다 달아놨음, 백업컨피크에서는 경로설정만 다르게.)  Config 패키지에서 생성해준 후  
 MemberService 클래스의 createMember 로직에 백업에도 저장되도록 매서드 수정.   
+  
+event 만들어서 MemberService의 createMember 매서드 이메일 보내기 실패하면 롤백되도록 수정.  
+(원래의 트랜잭션 생각해보면, createMember 에서 save와 emailsend는 비동기이기에 이메일 실패해도 롤백 안된다!)  
