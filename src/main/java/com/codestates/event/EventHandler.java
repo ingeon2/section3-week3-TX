@@ -30,9 +30,9 @@ public class EventHandler {
             log.info("# Send email");
             emailSender.sendEmail("any email message");
         }
-        catch (Exception e) {
+        catch (Exception e) { //이메일 전송 실패한다면!
             log.error("MailSendException happended : ", e);
-            memberService.deleteMember(memberEvent.getMember().getMemberId());
+            memberService.deleteMember(memberEvent.getMember().getMemberId()); //롤백 지점
             throw new BusinessLogicException(ExceptionCode.FAIL_TO_SEND_EMAIL); //이거를 위해 ExceptionCode 에서 새로 만들엇자넝
         }
     }
